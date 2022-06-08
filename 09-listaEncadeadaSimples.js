@@ -93,35 +93,34 @@ class ListaEncadeada {
   }
 
   deleteAt(posicao) {
-      let atual = this.head;
-      if (posicao == 0) {
-          this.head = atual.proximo;
-      } else {
-          let anterior = atual;
-          for (let i = 0; i < posicao; i++) {
-              anterior = atual;
-              atual = atual.proximo;
-          }
-          anterior.proximo = atual.proximo;
+    let atual = this.head;
+    if (posicao == 0) {
+      this.head = atual.proximo;
+    } else {
+      let anterior = atual;
+      for (let i = 0; i < posicao; i++) {
+        anterior = atual;
+        atual = atual.proximo;
       }
-      return posicao;
+      anterior.proximo = atual.proximo;
+    }
+    return posicao;
   }
 
   indexOf(elemento) {
     let atual = this.head;
     let contador = 0;
     while (atual) {
-        if (atual.elemento == elemento) {
-            return contador;
-            break
-        } else {
-            atual = atual.proximo;
-            contador++;
-        }
+      if (atual.elemento == elemento) {
+        return contador;
+        break;
+      } else {
+        atual = atual.proximo;
+        contador++;
+      }
     }
     return undefined;
   }
-
 }
 
 const lista = new ListaEncadeada();
@@ -131,8 +130,8 @@ console.log(lista.insertLast("teste 2"));
 console.log(lista.searchAt(2));
 console.log(lista.insertFirst("novo teste"));
 console.log(lista.insertAt("novo teste 01", 3));
-console.log(lista.deleteAt(3))
-console.log(lista.deleteAt(1))
-console.log(`Posição do teste 1: ${lista.indexOf('teste 1')}`);
-console.log(`Posição do teste 2: ${lista.indexOf('teste 2')}`);
+console.log(lista.deleteAt(3));
+console.log(lista.deleteAt(0));
+console.log(`Posição do teste 1: ${lista.indexOf("teste")}`);
+console.log(`Posição do teste 2: ${lista.indexOf("teste 2")}`);
 console.table(lista.traversal());
