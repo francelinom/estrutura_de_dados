@@ -1,3 +1,4 @@
+/** No conjunto o foco sempre vai ser o valor */
 const meuConjunto = new Set();
 /** o Set não deixa valores repetidos no conjunto */
 const times = ["São Paulo", "Flamengo", "Santos", "Botafogo", "Flamengo"];
