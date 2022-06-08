@@ -14,4 +14,61 @@ class Deque {
     constructor() {
         this.itens = [];
     }
+
+    insertFront(item) {
+        return this.itens.unshift(item);
+    }
+
+    insertLast(item) {
+        return this.itens.push(item);
+    }
+
+    isEmpty() {
+        return this.itens.length == 0;
+    }
+
+    deleteFront() {
+        if (this.isEmpty())  {
+            return undefined;
+        }
+
+        return this.itens.shift();
+    }
+
+    deleteLast() {
+        if (this.isEmpty())  {
+            return undefined;
+        }
+        return this.itens.pop();
+    }
+
+    front() {
+        if (this.isEmpty()) {
+            return undefined;
+        }
+        return this.itens[0]
+    }
+
+    rear() {
+        if (this.isEmpty()) {
+            return undefined;
+        }
+        return this.itens[this.itens.length - 1]
+    }
 }
+
+const deque = new Deque();
+deque.insertFront(10);
+deque.insertFront(20);
+deque.insertFront(30);
+deque.insertFront(40);
+
+deque.insertLast(100);
+console.log(deque.front());
+console.log(deque.rear());
+console.table(deque.itens);
+
+deque.deleteFront();
+deque.deleteLast();
+
+console.table(deque.itens);
